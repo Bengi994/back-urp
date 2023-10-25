@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "catologos",
+  "info": {
+    "singularName": "catologo",
+    "pluralName": "catologos",
+    "displayName": "Conferencia",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tema_conferencia": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "disponible": {
+      "type": "boolean"
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "expositor": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "hora": {
+      "type": "time"
+    },
+    "salon": {
+      "type": "enumeration",
+      "enum": [
+        "Auditorio Ollantaytambo",
+        "Auditorio Sebastian Barranca",
+        "Auditorio B"
+      ]
+    },
+    "dirigido": {
+      "type": "enumeration",
+      "enum": [
+        "Todas las carreras",
+        "Ingeniería informática",
+        "Ingeniería industrial"
+      ]
+    },
+    "miconf": {
+      "type": "boolean"
+    },
+    "solicitado_por": {
+      "type": "string"
+    },
+    "inscripciones": {
+      "type": "json"
+    }
+  }
+}
