@@ -41,14 +41,6 @@
     "hora": {
       "type": "time"
     },
-    "salon": {
-      "type": "enumeration",
-      "enum": [
-        "Auditorio Ollantaytambo",
-        "Auditorio Sebastian Barranca",
-        "Auditorio B"
-      ]
-    },
     "dirigido": {
       "type": "enumeration",
       "enum": [
@@ -65,6 +57,12 @@
     },
     "inscripciones": {
       "type": "json"
+    },
+    "salons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::salon.salon",
+      "inversedBy": "conferencias"
     }
   }
 }

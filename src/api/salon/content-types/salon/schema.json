@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "salons",
+  "info": {
+    "singularName": "salon",
+    "pluralName": "salons",
+    "displayName": "Salon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "text",
+      "required": true
+    },
+    "aforo": {
+      "type": "integer"
+    },
+    "conferencias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::catologo.catologo",
+      "mappedBy": "salons"
+    }
+  }
+}

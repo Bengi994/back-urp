@@ -16,7 +16,7 @@ module.exports = createCoreController('api::producto.producto', ({ strapi }) => 
       const inventories = await strapi.entityService.findMany('api::inventario.inventario', {
         fields: ['productoId'],
       });
-
+//pone las que no tienen inventario
       const productIds = inventories.map(({ productoId }) => productoId);
       const options = [];
 
