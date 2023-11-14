@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alumno_conferencas",
+  "info": {
+    "singularName": "alumno-conferenca",
+    "pluralName": "alumno-conferencas",
+    "displayName": "AlumnoConferenca"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "alumnoId": {
+      "type": "integer"
+    },
+    "conferenciaId": {
+      "type": "integer"
+    },
+    "asistencia": {
+      "type": "boolean"
+    }
+  }
+}

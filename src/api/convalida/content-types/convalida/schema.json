@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "convalidas",
+  "info": {
+    "singularName": "convalida",
+    "pluralName": "convalidas",
+    "displayName": "Convalida"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tema_conferencia": {
+      "type": "string"
+    },
+    "nombre_institucion": {
+      "type": "string"
+    },
+    "ubicacion": {
+      "type": "string"
+    },
+    "foto_certificado_url": {
+      "type": "string"
+    }
+  }
+}

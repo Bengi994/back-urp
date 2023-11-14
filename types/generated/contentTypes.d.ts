@@ -690,6 +690,39 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAlumnoConferencaAlumnoConferenca
+  extends Schema.CollectionType {
+  collectionName: 'alumno_conferencas';
+  info: {
+    singularName: 'alumno-conferenca';
+    pluralName: 'alumno-conferencas';
+    displayName: 'AlumnoConferenca';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alumnoId: Attribute.Integer;
+    conferenciaId: Attribute.Integer;
+    asistencia: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::alumno-conferenca.alumno-conferenca',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::alumno-conferenca.alumno-conferenca',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCarritoCarrito extends Schema.CollectionType {
   collectionName: 'carritos';
   info: {
@@ -768,6 +801,71 @@ export interface ApiCatologoCatologo extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::catologo.catologo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiConvalidaConvalida extends Schema.CollectionType {
+  collectionName: 'convalidas';
+  info: {
+    singularName: 'convalida';
+    pluralName: 'convalidas';
+    displayName: 'Convalida';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tema_conferencia: Attribute.String;
+    nombre_institucion: Attribute.String;
+    ubicacion: Attribute.String;
+    foto_certificado_url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::convalida.convalida',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::convalida.convalida',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiConvalidarConvalidar extends Schema.CollectionType {
+  collectionName: 'convalidars';
+  info: {
+    singularName: 'convalidar';
+    pluralName: 'convalidars';
+    displayName: 'Convalidar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    conferencia: Attribute.String;
+    institucion: Attribute.String;
+    ubicacion: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::convalidar.convalidar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::convalidar.convalidar',
       'oneToOne',
       'admin::user'
     > &
@@ -1037,8 +1135,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::alumno-conferenca.alumno-conferenca': ApiAlumnoConferencaAlumnoConferenca;
       'api::carrito.carrito': ApiCarritoCarrito;
       'api::catologo.catologo': ApiCatologoCatologo;
+      'api::convalida.convalida': ApiConvalidaConvalida;
+      'api::convalidar.convalidar': ApiConvalidarConvalidar;
       'api::inventario.inventario': ApiInventarioInventario;
       'api::pedido.pedido': ApiPedidoPedido;
       'api::pedido-detaille.pedido-detaille': ApiPedidoDetaillePedidoDetaille;
