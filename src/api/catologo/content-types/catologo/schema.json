@@ -49,18 +49,15 @@
         "Ingeniería industrial"
       ]
     },
-    "miconf": {
-      "type": "boolean"
-    },
     "solicitado_por": {
       "type": "string"
     },
     "inscripciones": {
       "type": "json"
     },
-    "salons": {
+    "salon": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::salon.salon",
       "inversedBy": "conferencias"
     }
