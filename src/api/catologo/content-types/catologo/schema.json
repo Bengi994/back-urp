@@ -60,9 +60,6 @@
       "relation": "manyToOne",
       "target": "api::salon.salon",
       "inversedBy": "conferencias"
-    },
-    "prueba": {
-      "type": "string"
     }
   }
 }
