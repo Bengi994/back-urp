@@ -784,9 +784,9 @@ export interface ApiCatologoCatologo extends Schema.CollectionType {
     >;
     solicitado_por: Attribute.String;
     inscripciones: Attribute.JSON;
-    salon: Attribute.Relation<
+    salons: Attribute.Relation<
       'api::catologo.catologo',
-      'manyToOne',
+      'manyToMany',
       'api::salon.salon'
     >;
     createdAt: Attribute.DateTime;
@@ -1097,7 +1097,7 @@ export interface ApiSalonSalon extends Schema.CollectionType {
     aforo: Attribute.Integer;
     conferencias: Attribute.Relation<
       'api::salon.salon',
-      'oneToMany',
+      'manyToMany',
       'api::catologo.catologo'
     >;
     createdAt: Attribute.DateTime;
