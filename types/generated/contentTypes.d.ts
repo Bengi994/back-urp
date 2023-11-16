@@ -813,6 +813,7 @@ export interface ApiConvalidaConvalida extends Schema.CollectionType {
     singularName: 'convalida';
     pluralName: 'convalidas';
     displayName: 'Convalida';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -822,6 +823,7 @@ export interface ApiConvalidaConvalida extends Schema.CollectionType {
     nombre_institucion: Attribute.String;
     ubicacion: Attribute.String;
     foto_certificado_url: Attribute.String;
+    disponible: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

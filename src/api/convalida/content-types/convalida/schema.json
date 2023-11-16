@@ -4,7 +4,8 @@
   "info": {
     "singularName": "convalida",
     "pluralName": "convalidas",
-    "displayName": "Convalida"
+    "displayName": "Convalida",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,9 @@
     },
     "foto_certificado_url": {
       "type": "string"
+    },
+    "disponible": {
+      "type": "boolean"
     }
   }
 }
