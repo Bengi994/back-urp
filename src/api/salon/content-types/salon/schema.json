@@ -21,9 +21,9 @@
     },
     "conferencias": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::catologo.catologo",
-      "mappedBy": "salons"
+      "mappedBy": "salon"
     }
   }
 }
