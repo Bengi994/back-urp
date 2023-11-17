@@ -55,9 +55,9 @@
     "inscripciones": {
       "type": "json"
     },
-    "salon": {
+    "salons": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::salon.salon",
       "inversedBy": "conferencias"
     }
