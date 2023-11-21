@@ -11,9 +11,10 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.14.0",
-    "@strapi/plugin-users-permissions": "4.14.0",
     "@strapi/plugin-i18n": "4.14.0",
+    "@strapi/plugin-users-permissions": "4.14.0",
+    "@strapi/provider-upload-cloudinary": "^4.15.4",
+    "@strapi/strapi": "4.14.0",
     "better-sqlite3": "9.0.0",
     "pg": "^8.11.3",
     "pg-connection-string": "^2.6.2"
@@ -29,6 +30,5 @@
     "npm": "10.x",
     "yarn": "1.x"
   },
-  
   "license": "MIT"
 }
