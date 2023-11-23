@@ -26,6 +26,9 @@
     },
     "disponible": {
       "type": "boolean"
+    },
+    "solicitado_alumno": {
+      "type": "string"
     }
   }
 }

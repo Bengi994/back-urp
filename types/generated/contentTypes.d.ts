@@ -824,6 +824,7 @@ export interface ApiConvalidaConvalida extends Schema.CollectionType {
     ubicacion: Attribute.String;
     foto_certificado_url: Attribute.String;
     disponible: Attribute.Boolean;
+    solicitado_alumno: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
