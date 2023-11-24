@@ -29,6 +29,9 @@
     },
     "solicitado_alumno": {
       "type": "string"
+    },
+    "foto_certificado": {
+      "type": "string"
     }
   }
 }
