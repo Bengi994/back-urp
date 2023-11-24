@@ -789,6 +789,7 @@ export interface ApiCatologoCatologo extends Schema.CollectionType {
       'manyToOne',
       'api::salon.salon'
     >;
+    repositorio: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
