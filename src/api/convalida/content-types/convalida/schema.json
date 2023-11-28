@@ -21,11 +21,9 @@
     "ubicacion": {
       "type": "string"
     },
-    "foto_certificado_url": {
-      "type": "string"
-    },
     "disponible": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "solicitado_alumno": {
       "type": "string"

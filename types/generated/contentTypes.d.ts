@@ -823,8 +823,7 @@ export interface ApiConvalidaConvalida extends Schema.CollectionType {
     tema_conferencia: Attribute.String;
     nombre_institucion: Attribute.String;
     ubicacion: Attribute.String;
-    foto_certificado_url: Attribute.String;
-    disponible: Attribute.Boolean;
+    disponible: Attribute.Boolean & Attribute.DefaultTo<true>;
     solicitado_alumno: Attribute.String;
     foto_certificado: Attribute.String;
     createdAt: Attribute.DateTime;
@@ -838,38 +837,6 @@ export interface ApiConvalidaConvalida extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::convalida.convalida',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiConvalidarConvalidar extends Schema.CollectionType {
-  collectionName: 'convalidars';
-  info: {
-    singularName: 'convalidar';
-    pluralName: 'convalidars';
-    displayName: 'Convalidar';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    conferencia: Attribute.String;
-    institucion: Attribute.String;
-    ubicacion: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::convalidar.convalidar',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::convalidar.convalidar',
       'oneToOne',
       'admin::user'
     > &
@@ -1143,7 +1110,6 @@ declare module '@strapi/types' {
       'api::carrito.carrito': ApiCarritoCarrito;
       'api::catologo.catologo': ApiCatologoCatologo;
       'api::convalida.convalida': ApiConvalidaConvalida;
-      'api::convalidar.convalidar': ApiConvalidarConvalidar;
       'api::inventario.inventario': ApiInventarioInventario;
       'api::pedido.pedido': ApiPedidoPedido;
       'api::pedido-detaille.pedido-detaille': ApiPedidoDetaillePedidoDetaille;
