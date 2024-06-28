@@ -723,39 +723,6 @@ export interface ApiAlumnoConferencaAlumnoConferenca
   };
 }
 
-export interface ApiCarritoCarrito extends Schema.CollectionType {
-  collectionName: 'carritos';
-  info: {
-    singularName: 'carrito';
-    pluralName: 'carritos';
-    displayName: 'Carrito';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    userId: Attribute.BigInteger;
-    catalogoIds: Attribute.JSON;
-    total: Attribute.BigInteger;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::carrito.carrito',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::carrito.carrito',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCatologoCatologo extends Schema.CollectionType {
   collectionName: 'catologos';
   info: {
@@ -844,133 +811,6 @@ export interface ApiConvalidaConvalida extends Schema.CollectionType {
   };
 }
 
-export interface ApiInventarioInventario extends Schema.CollectionType {
-  collectionName: 'inventarios';
-  info: {
-    singularName: 'inventario';
-    pluralName: 'inventarios';
-    displayName: 'Inventario';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    stock: Attribute.BigInteger;
-    disponible: Attribute.Boolean;
-    productoId: Attribute.BigInteger;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::inventario.inventario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::inventario.inventario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPedidoPedido extends Schema.CollectionType {
-  collectionName: 'pedidos';
-  info: {
-    singularName: 'pedido';
-    pluralName: 'pedidos';
-    displayName: 'Pedido';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    tipoPedido: Attribute.Enumeration<['virtual', 'tienda']>;
-    estado: Attribute.Enumeration<
-      [
-        'creado',
-        'preparando',
-        'despachado',
-        'recogido',
-        'camino',
-        'llegue',
-        'entregado',
-        'rechazado',
-        'no_encontrado'
-      ]
-    >;
-    numeroPedido: Attribute.String & Attribute.Required & Attribute.Unique;
-    userId: Attribute.String;
-    total: Attribute.Float;
-    direccion: Attribute.String;
-    zona: Attribute.Enumeration<['Tienda', 'A', 'B', 'C', 'D']> &
-      Attribute.DefaultTo<'Tienda'>;
-    nombreCompleto: Attribute.String;
-    dni: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 8;
-        maxLength: 8;
-      }>;
-    email: Attribute.Email & Attribute.DefaultTo<'tienda@tienda.com'>;
-    metodoPago: Attribute.Enumeration<['efectivo', 'yape', 'pos', 'online']>;
-    date: Attribute.Date;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::pedido.pedido',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::pedido.pedido',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPedidoDetaillePedidoDetaille extends Schema.CollectionType {
-  collectionName: 'pedido_detailles';
-  info: {
-    singularName: 'pedido-detaille';
-    pluralName: 'pedido-detailles';
-    displayName: 'PedidoDetaille';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    pedidoId: Attribute.String;
-    catalogoId: Attribute.String;
-    monto: Attribute.Float;
-    cantidad: Attribute.Integer;
-    descuento: Attribute.Float;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::pedido-detaille.pedido-detaille',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::pedido-detaille.pedido-detaille',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPersonaPersona extends Schema.CollectionType {
   collectionName: 'personas';
   info: {
@@ -1010,42 +850,6 @@ export interface ApiPersonaPersona extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::persona.persona',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductoProducto extends Schema.CollectionType {
-  collectionName: 'productos';
-  info: {
-    singularName: 'producto';
-    pluralName: 'productos';
-    displayName: 'Producto';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nombre: Attribute.String;
-    descripcion: Attribute.Text;
-    tipo_producto: Attribute.String;
-    unidad: Attribute.String;
-    piezas: Attribute.Integer;
-    disponible: Attribute.Boolean & Attribute.DefaultTo<true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::producto.producto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::producto.producto',
       'oneToOne',
       'admin::user'
     > &
@@ -1107,14 +911,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::alumno-conferenca.alumno-conferenca': ApiAlumnoConferencaAlumnoConferenca;
-      'api::carrito.carrito': ApiCarritoCarrito;
       'api::catologo.catologo': ApiCatologoCatologo;
       'api::convalida.convalida': ApiConvalidaConvalida;
-      'api::inventario.inventario': ApiInventarioInventario;
-      'api::pedido.pedido': ApiPedidoPedido;
-      'api::pedido-detaille.pedido-detaille': ApiPedidoDetaillePedidoDetaille;
       'api::persona.persona': ApiPersonaPersona;
-      'api::producto.producto': ApiProductoProducto;
       'api::salon.salon': ApiSalonSalon;
     }
   }
